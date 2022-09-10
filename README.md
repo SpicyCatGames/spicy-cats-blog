@@ -1,4 +1,28 @@
+# context api or redux to store state
+
+# npm install to install all dependencies from package.json
+
+# font awesome => npm install react-icons@4.1.0
+
+# npm install -g serve but im just gonna use liveserver extension
+
+# serve -s build -p 8000
+
 # Getting Started with Create React App
+
+## jsonserver
+
+# npm install json-server
+
+# react router
+
+# npm install react-router-dom@5.2.0
+
+# npm install react-router-dom@latest
+
+# npm install react-router-dom@6.0.2
+
+# code . to open powershell directory in vscode
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
