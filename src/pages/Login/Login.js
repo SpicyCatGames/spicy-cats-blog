@@ -9,15 +9,27 @@ export default function Login() {
       <h3>Login</h3>
       <form>
         <div>
-          <label id="UserName">Username: </label>
-          <input className="login-name-box" htmlFor="UserName" />
+          <label htmlFor="UserName">Username: </label>
+          <input
+            id="UserName"
+            className="login-name-box"
+            placeholder="username"
+          />
         </div>
         <div>
-          <label id="Password">Password: </label>
-          <input className="login-pass-box" htmlFor="Password" />
+          <label htmlFor="Password">Password: </label>
+          <input
+            id="Password"
+            className="login-pass-box"
+            type="password"
+            placeholder="password"
+          />
         </div>
         <input className="login-button" type="submit" value="Sign in" />
       </form>
+      <p>
+        Don't have an account? <a href="./">Sign Up</a>
+      </p>
     </div>
   );
 }
