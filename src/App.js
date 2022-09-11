@@ -11,8 +11,8 @@ function App() {
   return (
     <>
       <jwtContext.Provider value={jwt}>
-        <Navbar />
         <div className="container">
+          <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
