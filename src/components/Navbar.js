@@ -7,7 +7,8 @@ export default function Navbar() {
         SpicyCat's Blog
       </Link>
       <ul>
-        <CustomLink to="/pricing">Pricing</CustomLink>
+        <CustomLink to="/login">Log In</CustomLink>
+        <CustomLink to="/signup">Sign Up</CustomLink>
         <CustomLink to="/about">About</CustomLink>
       </ul>
     </nav>
