@@ -1,26 +1,26 @@
-import "./styles.css";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
     <nav className="nav">
-      <a href="/" className="site-title">
+      <Link to="/" className="site-title">
         SpicyCat's Blog
-      </a>
+      </Link>
       <ul>
-        <CustomLink href="/pricing">Pricing</CustomLink>
-        <CustomLink href="/about">About</CustomLink>
+        <CustomLink to="/pricing">Pricing</CustomLink>
+        <CustomLink to="/about">About</CustomLink>
       </ul>
     </nav>
   );
 }
 
-function CustomLink({ href, children, ...props }) {
+function CustomLink({ to, children, ...props }) {
   const path = window.location.pathname;
   return (
-    <li className={path === href ? "active" : ""}>
-      <a href={href} {...props}>
+    <li className={path === to ? "active" : ""}>
+      <Link to={to} {...props}>
         {children}
-      </a>
+      </Link>
     </li>
   );
 }
