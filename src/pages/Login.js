@@ -3,5 +3,5 @@ import { jwtContext } from "../App";
 
 export default function Login() {
   const jwt = useContext(jwtContext);
-  return <div>{jwt}</div>;
+  return <div>Login</div>;
 }
