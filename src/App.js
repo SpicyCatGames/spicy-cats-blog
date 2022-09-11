@@ -1,5 +1,4 @@
-import "./styles.css";
-import Navbar from "./Navbar";
+import Navbar from "./components/Navbar";
 import { Home, Pricing, About } from "./pages";
 import { Route, Routes } from "react-router-dom";
 
