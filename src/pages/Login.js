@@ -1,3 +1,7 @@
+import { useContext } from "react";
+import { jwtContext } from "../App";
+
 export default function Login() {
-  return <h1>Login</h1>;
+  const jwt = useContext(jwtContext);
+  return <div>{jwt}</div>;
 }
