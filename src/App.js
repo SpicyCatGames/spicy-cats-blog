@@ -1,4 +1,4 @@
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import { Login, Signup, Home, About } from "./pages";
 import { Route, Routes } from "react-router-dom";
 import React, { useState } from "react";

@@ -1,9 +1,10 @@
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
+import "./navbar.css";
 
 export default function Navbar() {
   return (
     <nav className="nav">
-      <Link to="/" className="site-title">
+      <Link to="/" className="nav-site-title">
         SpicyCat's Blog
       </Link>
       <ul>
