@@ -28,7 +28,7 @@ export default function Login({ setJwt }) {
         <input className="login-button" type="submit" value="Sign in" />
       </form>
       <p>
-        Don't have an account? <a href="./">Sign Up</a>
+        Don't have an account? <Link to="../signup">Sign Up</Link>
       </p>
     </div>
   );
