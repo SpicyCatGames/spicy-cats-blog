@@ -1,10 +1,11 @@
 import { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { jwtContext, apiUrlContext } from "../../App";
+import { jwtContext, apiUrlContext, loggedInContext } from "../../App";
 import "../loginregstyles.css";
 
-const Login = ({ setJwt }) => {
+const Login = ({ setJwt, setLoggedIn }) => {
   const jwt = useContext(jwtContext);
+  const loggedIn = useContext(loggedInContext);
   const apiUrl = useContext(apiUrlContext);
 
   const [error, setError] = useState("");
@@ -39,10 +40,19 @@ const Login = ({ setJwt }) => {
       setError("");
       setName("");
       setPass("");
+      setLoggedIn(true);
+      clearTimeout(this.timeoutID);
+      logoutCountdown();
     } else {
       const data = await res.text();
       setError(data);
     }
+  };
+
+  const logoutCountdown = () => {
+    this.timeoutID = setTimeout(() => {
+      setLoggedIn(false);
+    }, 900000);
   };
 
   useEffect(() => {
