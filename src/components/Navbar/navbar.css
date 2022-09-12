@@ -36,3 +36,8 @@
 .nav li:hover{
     background-color: #777;
 }
+
+.nav-text{
+    /* white-space:nowrap;
+    overflow: hidden; */
+}

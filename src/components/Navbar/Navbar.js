@@ -8,9 +8,15 @@ export default function Navbar() {
         SpicyCat's Blog
       </Link>
       <ul>
-        <CustomLink to="/login">Log In</CustomLink>
-        <CustomLink to="/signup">Sign Up</CustomLink>
-        <CustomLink to="/about">About</CustomLink>
+        <CustomLink to="/login">
+          <p className="nav-text">Log In</p>
+        </CustomLink>
+        <CustomLink to="/signup">
+          <p className="nav-text">Sign Up</p>
+        </CustomLink>
+        <CustomLink to="/about">
+          <p className="nav-text">About</p>
+        </CustomLink>
       </ul>
     </nav>
   );
