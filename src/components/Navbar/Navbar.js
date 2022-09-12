@@ -1,26 +1,36 @@
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
+import { loggedInContext } from "../../App";
+import { useContext } from "react";
 import "./navbar.css";
 
-export default function Navbar() {
+const Navbar = () => {
+  const loggedIn = useContext(loggedInContext);
+
   return (
     <nav className="nav">
       <Link to="/" className="nav-site-title">
         SpicyCat's Blog
       </Link>
       <div>
-        <CustomLink to="/login">
-          <p className="nav-text">Log In</p>
-        </CustomLink>
-        <CustomLink to="/signup">
-          <p className="nav-text">Sign Up</p>
-        </CustomLink>
+        {!loggedIn ? (
+          <>
+            <CustomLink to="/login">
+              <p className="nav-text">Log In</p>
+            </CustomLink>
+            <CustomLink to="/signup">
+              <p className="nav-text">Sign Up</p>
+            </CustomLink>
+          </>
+        ) : (
+          ""
+        )}
         <CustomLink to="/about">
           <p className="nav-text">About</p>
         </CustomLink>
       </div>
     </nav>
   );
-}
+};
 
 function CustomLink({ to, children, ...props }) {
   const resolvedPath = useResolvedPath(to);
@@ -34,3 +44,5 @@ function CustomLink({ to, children, ...props }) {
     </div>
   );
 }
+
+export default Navbar;
