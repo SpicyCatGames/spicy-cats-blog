@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { jwtContext } from "../../App";
-import "../loginstyles.css";
+import "../loginregstyles.css";
 
 export default function Login() {
   const jwt = useContext(jwtContext);

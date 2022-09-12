@@ -1,4 +1,4 @@
-.login-container{
+.login-container, .signup-container{
   margin:0px;
   padding:0px;
 
@@ -9,19 +9,19 @@
   align-items: center;
 }
 
-.login-container form{
+.login-container form, .signup-container form{
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.login-container form div{
+.login-container form div, .signup-container form div{
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.login-name-box, .login-pass-box{
+.login-name-box, .login-pass-box, .signup-name-box, .signup-pass-box{
     border:none;
     align-content:center;
     text-align:center;
@@ -35,19 +35,19 @@
     border-radius:10px;
 }
 
-.login-container h3{
+.login-container h3, .signup-container h3{
   text-align: center;
 }
 
-.login-button{
+.login-button, .signup-button{
   border-radius:10px;
   margin-top: 1rem;
   padding: 0.5rem 1rem;
   background-color: #ccc;
 }
-.login-button:hover{
+.login-button:hover, .signup-button:hover{
   background-color:#eee;
 }
-.login-button:active{
+.login-button:active, .signup-button:active{
   background-color: #aaa;
 }
