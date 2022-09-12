@@ -13,6 +13,29 @@ const Login = ({ setJwt }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+
+    const loginInfo = {
+      username: name,
+      password: pass,
+      role: "string",
+    };
+
+    login(loginInfo);
+  };
+
+  const login = async (loginInfo) => {
+    const res = await fetch(`${apiUrl}api/Auth/login`, {
+      method: "POST",
+      headers: {
+        Accept: "text/plain",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(loginInfo),
+    });
+
+    const data = await res.text();
+    setJwt(data);
+    alert(data);
   };
 
   useEffect(() => {
