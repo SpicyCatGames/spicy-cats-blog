@@ -7,7 +7,7 @@ export default function Navbar() {
       <Link to="/" className="nav-site-title">
         SpicyCat's Blog
       </Link>
-      <ul>
+      <div>
         <CustomLink to="/login">
           <p className="nav-text">Log In</p>
         </CustomLink>
@@ -17,7 +17,7 @@ export default function Navbar() {
         <CustomLink to="/about">
           <p className="nav-text">About</p>
         </CustomLink>
-      </ul>
+      </div>
     </nav>
   );
 }
@@ -27,10 +27,10 @@ function CustomLink({ to, children, ...props }) {
   // end true matches whole thing not part of url
   const isActive = useMatch({ path: resolvedPath.pathname, end: true });
   return (
-    <li className={isActive ? "active" : ""}>
+    <div className={isActive ? "active" : ""}>
       <Link to={to} {...props}>
         {children}
       </Link>
-    </li>
+    </div>
   );
 }

@@ -4,6 +4,7 @@
 
 body{
     margin: 0;
+    padding: 0;
     background-color: grey;
 }
 
@@ -16,4 +17,7 @@ body{
     background: -webkit-linear-gradient(to left, #d53369, #cbad6d);
     /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to left, #d53369, #cbad6d);
+
+    margin: 0;
+    padding: 0;
 }

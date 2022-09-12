@@ -1,11 +1,12 @@
 .login-container{
-  margin-top:0px;
-  padding-top:0px;
-  padding-top: 2%;
-  padding-bottom:6%;
+  margin:0px;
+  padding:0px;
 
-  flex-grow: 1;
   text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .login-container form{
@@ -25,9 +26,10 @@
     align-content:center;
     text-align:center;
     outline:none;
-    width: 400px;
-    height: 45px;
-    margin: 10px;
+    width: 16rem;
+    max-width: 95%;
+    height: 3rem;
+    margin: 1rem;
     color: #7f8c8d;
     font-size:120%;
     border-radius:10px;
