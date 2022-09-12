@@ -32,10 +32,17 @@ const Login = ({ setJwt }) => {
       },
       body: JSON.stringify(loginInfo),
     });
-
-    const data = await res.text();
-    setJwt(data);
-    alert(data);
+    if (res.ok) {
+      const data = await res.text();
+      setJwt(data);
+      alert(data);
+      setError("");
+      setName("");
+      setPass("");
+    } else {
+      const data = await res.text();
+      setError(data);
+    }
   };
 
   useEffect(() => {
