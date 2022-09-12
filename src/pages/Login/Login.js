@@ -34,7 +34,7 @@ const Login = ({ setJwt }) => {
     });
     if (res.ok) {
       const data = await res.text();
-      setJwt(data);
+      setJwt(`bearer ${data}`);
       alert(data);
       setError("");
       setName("");
