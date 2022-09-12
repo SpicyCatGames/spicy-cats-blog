@@ -11,6 +11,7 @@ const Login = ({ setJwt, setLoggedIn }) => {
   const [error, setError] = useState("");
   const [name, setName] = useState("");
   const [pass, setPass] = useState("");
+  let [timeoutID, setTimeoutID] = useState(-1);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -41,7 +42,10 @@ const Login = ({ setJwt, setLoggedIn }) => {
       setName("");
       setPass("");
       setLoggedIn(true);
-      clearTimeout(this.timeoutID);
+      if (!(timeoutID === -1)) {
+        clearTimeout(this.timeoutID);
+      }
+
       logoutCountdown();
     } else {
       const data = await res.text();
@@ -50,9 +54,10 @@ const Login = ({ setJwt, setLoggedIn }) => {
   };
 
   const logoutCountdown = () => {
-    this.timeoutID = setTimeout(() => {
+    let id = setTimeout(() => {
       setLoggedIn(false);
     }, 900000);
+    setTimeoutID(id);
   };
 
   useEffect(() => {
@@ -61,35 +66,43 @@ const Login = ({ setJwt, setLoggedIn }) => {
 
   return (
     <div className="login-container">
-      <h3>Login</h3>
-      <form onSubmit={onSubmit}>
-        <div>
-          <p style={errorStyle}>{error.length > 0 ? `${error}` : ""}</p>
-          <label htmlFor="UserName">Username: </label>
-          <input
-            id="UserName"
-            className="login-name-box"
-            placeholder="username"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor="Password">Password: </label>
-          <input
-            id="Password"
-            className="login-pass-box"
-            type="password"
-            placeholder="password"
-            value={pass}
-            onChange={(e) => setPass(e.target.value)}
-          />
-        </div>
-        <input className="login-button" type="submit" value="Sign in" />
-      </form>
-      <p>
-        Don't have an account? <Link to="../signup">Sign Up</Link>
-      </p>
+      {!loggedIn ? (
+        <>
+          <h3>Login</h3>
+          <form onSubmit={onSubmit}>
+            <div>
+              <p style={errorStyle}>{error.length > 0 ? `${error}` : ""}</p>
+              <label htmlFor="UserName">Username: </label>
+              <input
+                id="UserName"
+                className="login-name-box"
+                placeholder="username"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+            <div>
+              <label htmlFor="Password">Password: </label>
+              <input
+                id="Password"
+                className="login-pass-box"
+                type="password"
+                placeholder="password"
+                value={pass}
+                onChange={(e) => setPass(e.target.value)}
+              />
+            </div>
+            <input className="login-button" type="submit" value="Sign in" />
+          </form>
+          <p>
+            Don't have an account? <Link to="../signup">Sign Up</Link>
+          </p>
+        </>
+      ) : (
+        <>
+          <h3>You are already logged in</h3>
+        </>
+      )}
     </div>
   );
 };
