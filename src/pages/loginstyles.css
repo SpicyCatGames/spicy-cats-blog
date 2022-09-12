@@ -43,4 +43,11 @@
   border-radius:10px;
   margin-top: 1rem;
   padding: 0.5rem 1rem;
+  background-color: #ccc;
+}
+.login-button:hover{
+  background-color:#eee;
+}
+.login-button:active{
+  background-color: #aaa;
 }
