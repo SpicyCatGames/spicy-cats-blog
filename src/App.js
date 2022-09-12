@@ -15,7 +15,7 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/login" element={<Login setJwt={setJwt} />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/about" element={<About />} />
           </Routes>

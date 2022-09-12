@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { jwtContext } from "../../App";
 import "../loginregstyles.css";
 
-export default function Login() {
+export default function Login({ setJwt }) {
   const jwt = useContext(jwtContext);
   return (
     <div className="login-container">
