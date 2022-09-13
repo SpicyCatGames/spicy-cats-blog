@@ -38,6 +38,7 @@ function App() {
                 />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/about" element={<About />} />
+                <Route path="*" element={<PageNotFound />} />
               </Routes>
             </div>
           </loggedInContext.Provider>
