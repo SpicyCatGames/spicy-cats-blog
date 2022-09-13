@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar/Navbar";
 import { Login, Signup, Home, About } from "./pages";
 import { Route, Routes } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useEffect, useState, useNavigate } from "react";
 
 export const jwtContext = React.createContext();
 export const apiUrlContext = React.createContext();
@@ -10,7 +10,18 @@ export const loggedInContext = React.createContext();
 function App() {
   const [jwt, setJwt] = useState("sometoken");
   const [loggedIn, setLoggedIn] = useState(false);
-  const apiUrl = "https://localhost:7190/";
+  const apiUrl = "https://sadmandiu.somee.com/";
+  let navigate = useNavigate();
+
+  useEffect(() => {
+    let baseURL = "https://spicycatgames.github.io/";
+    let returnURL = sessionStorage.getItem("404url");
+    if (returnURL.startsWith(baseURL)) {
+      sessionStorage.removeItem("404url");
+      returnURL = returnURL.replace(baseURL, "/");
+      navigate(`returnURL`);
+    }
+  }, []);
 
   return (
     <>
