@@ -1,5 +1,4 @@
 import Navbar from "./components/Navbar/Navbar";
-import CheckLogin from "./components/CheckLogin";
 import { Login, Signup, Home, About, PageNotFound } from "./pages";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
@@ -15,7 +14,6 @@ function App() {
   const apiUrl = "https://sadmandiu.somee.com/";
 
   useEffect(() => {
-    CheckLogin(apiUrl, setJwt);
     let baseURL = "https://spicycatgames.github.io/";
     let returnURL = sessionStorage.getItem("404url");
     if (returnURL && returnURL.length > 0 && returnURL.startsWith(baseURL)) {
