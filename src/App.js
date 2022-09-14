@@ -19,7 +19,7 @@ function App() {
     if (returnURL && returnURL.length > 0 && returnURL.startsWith(baseURL)) {
       sessionStorage.removeItem("404url");
       returnURL = returnURL.replace(baseURL, "/");
-      navigate(`returnURL`);
+      navigate(returnURL);
     }
   }, []);
 
