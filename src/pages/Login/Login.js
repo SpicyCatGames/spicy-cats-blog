@@ -44,6 +44,7 @@ const Login = ({ setJwt, setLoggedIn }) => {
       setLoggedIn(true);
       if (!(timeoutID === -1)) {
         clearTimeout(this.timeoutID);
+        setTimeoutID(-1);
       }
 
       logoutCountdown();
@@ -61,8 +62,15 @@ const Login = ({ setJwt, setLoggedIn }) => {
   };
 
   useEffect(() => {
-    // setError("Some dum error");
-  }, []);
+    if (!loggedIn) {
+      if (!(timeoutID === -1)) {
+        clearTimeout(this.timeoutID);
+        setTimeoutID(-1);
+        setJwt("");
+        // send request to api to remove refresh token from cookies
+      }
+    }
+  }, [loggedIn]);
 
   return (
     <div className="login-container">

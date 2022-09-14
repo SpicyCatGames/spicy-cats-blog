@@ -3,8 +3,12 @@ import { loggedInContext } from "../../App";
 import { useContext } from "react";
 import "./navbar.css";
 
-const Navbar = () => {
+const Navbar = ({ setLoggedIn }) => {
   const loggedIn = useContext(loggedInContext);
+
+  const logOut = () => {
+    setLoggedIn(false);
+  };
 
   return (
     <nav className="nav">
@@ -22,7 +26,9 @@ const Navbar = () => {
             </CustomLink>
           </>
         ) : (
-          ""
+          <CustomLink to="/" onClick={logOut}>
+            <p className="nav-text">Log Out</p>
+          </CustomLink>
         )}
         <CustomLink to="/about">
           <p className="nav-text">About</p>

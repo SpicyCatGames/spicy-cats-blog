@@ -8,7 +8,7 @@ export const apiUrlContext = React.createContext();
 export const loggedInContext = React.createContext();
 
 function App() {
-  const [jwt, setJwt] = useState("sometoken");
+  const [jwt, setJwt] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
   let navigate = useNavigate();
   const apiUrl = "https://sadmandiu.somee.com/";
@@ -29,7 +29,7 @@ function App() {
         <apiUrlContext.Provider value={apiUrl}>
           <loggedInContext.Provider value={loggedIn}>
             <div className="container">
-              <Navbar />
+              <Navbar setLoggedIn={setLoggedIn} />
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route
