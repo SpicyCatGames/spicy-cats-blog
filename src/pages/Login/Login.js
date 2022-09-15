@@ -29,6 +29,7 @@ const Login = ({ setJwt, setLoggedIn }) => {
   const login = async (loginInfo) => {
     const res = await fetch(`${apiUrl}api/Auth/login`, {
       method: "POST",
+      credentials: "include",
       headers: {
         Accept: "text/plain",
         "Content-Type": "application/json",
