@@ -47,7 +47,6 @@ const Login = ({ setJwt, setLoggedIn }) => {
         setTimeoutID(-1);
       }
 
-      logoutCountdown();
       navigate("/");
     } else {
       const data = await res.text();
@@ -70,6 +69,8 @@ const Login = ({ setJwt, setLoggedIn }) => {
         setJwt("");
         // send request to api to remove refresh token from cookies
       }
+    } else {
+      logoutCountdown();
     }
   }, [loggedIn]);
 
