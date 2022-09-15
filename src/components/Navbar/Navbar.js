@@ -1,13 +1,15 @@
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
-import { loggedInContext } from "../../App";
+import { loggedInContext, apiUrlContext } from "../../App";
 import { useContext } from "react";
+import Logout from "../Logout";
 import "./navbar.css";
 
 const Navbar = ({ setLoggedIn }) => {
   const loggedIn = useContext(loggedInContext);
+  const apiURL = useContext(apiUrlContext);
 
   const logOut = () => {
-    setLoggedIn(false);
+    Logout({ apiURL: apiURL, setLoggedin: setLoggedIn });
   };
 
   return (
