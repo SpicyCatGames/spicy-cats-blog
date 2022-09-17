@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { apiUrlContext, loggedInContext } from "../../App";
-import "../loginregstyles.css";
+import { apiUrlContext, loggedInContext } from "../App";
+import "./loginregstyles.css";
 
 const Login = ({ setJwt, setLoggedIn }) => {
   const loggedIn = useContext(loggedInContext);
