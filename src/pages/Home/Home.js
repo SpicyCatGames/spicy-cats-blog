@@ -1,3 +1,5 @@
+import "./homestyles.css";
+
 const Home = () => {
   return (
     <>
