@@ -1,0 +1,47 @@
+.home{
+    margin: 0px 0px 2px 0px;
+    background-color: #80dee2;
+}
+
+a.home-post{
+    color: white;
+    text-decoration: none;
+}
+    a.home-post:hover{
+        text-decoration: underline;
+    }
+
+.home-main-img{
+    position: relative;
+    height: 500px;
+    background-position: center;
+    background-size: cover;
+}
+
+.home-title, .home-post-title{
+    position: absolute;
+    color: white;
+    font-size: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 35%;
+    text-shadow: 0 0 8px black;
+}
+
+.home-container{
+    max-width: 800px;
+    width: 100%;
+    margin: auto;
+}
+
+.home-post {
+    margin: 5px;
+    position: relative;
+    display: flex;
+    height: 400px;
+    box-shadow: 0 0 5px 0 black;
+}
+    .home-post img {
+        width: 100%;
+        object-fit: cover;
+    }
