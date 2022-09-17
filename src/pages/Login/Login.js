@@ -73,7 +73,7 @@ const Login = ({ setJwt, setLoggedIn }) => {
     } else {
       logoutCountdown();
     }
-  }, [loggedIn]);
+  }, [loggedIn]); //eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="login-container">

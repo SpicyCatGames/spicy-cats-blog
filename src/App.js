@@ -23,7 +23,7 @@ function App() {
       returnURL = returnURL.replace(baseURL, "/");
       navigate(returnURL);
     }
-  }, []);
+  }, []); //eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <>
