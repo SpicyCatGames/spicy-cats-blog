@@ -1,10 +1,9 @@
 import { useContext, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { jwtContext, apiUrlContext, loggedInContext } from "../../App";
+import { apiUrlContext, loggedInContext } from "../../App";
 import "../loginregstyles.css";
 
 const Login = ({ setJwt, setLoggedIn }) => {
-  const jwt = useContext(jwtContext);
   const loggedIn = useContext(loggedInContext);
   const apiUrl = useContext(apiUrlContext);
   let navigate = useNavigate();

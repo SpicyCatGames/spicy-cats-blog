@@ -1,9 +1,6 @@
-import { useContext } from "react";
-import { jwtContext } from "../App";
 import "./loginregstyles.css";
 
 export default function Signup() {
-  const jwt = useContext(jwtContext);
   return (
     <div className="signup-container">
       <h3>Create New Account</h3>
