@@ -18,9 +18,10 @@ const Home = () => {
   const [category, setCategory] = useState(""); //eslint-disable-line no-unused-vars
   const [posts, setPosts] = useState([]);
 
+  const imageUrl = `${apiUrl}api/Posts/Image?image=`;
+
   useEffect(() => {
-    const postsFromServer = fetchPosts();
-    setPosts(postsFromServer);
+    fetchPosts();
   }, [pageSize]); //eslint-disable-line react-hooks/exhaustive-deps
 
   const fetchPosts = async () => {
@@ -37,7 +38,7 @@ const Home = () => {
     );
     if (res.ok) {
       const data = await res.json();
-      return data;
+      setPosts(data);
     } else {
       //
     }
@@ -66,10 +67,12 @@ const Home = () => {
           ))}
         </select>
         {/* page numbers */}
-        <a href="./" className="home-post" data-postid="">
-          <img src="/placeholders/comp.jpg" width="500" alt="" />
-          <span className="home-post-title">Post Title</span>
-        </a>
+        {posts.map((post) => (
+          <a key={post.id} href="./" className="home-post">
+            <img src={`${imageUrl}${post.imageUrl}`} width="500" alt="" />
+            <span className="home-post-title">{post.title}</span>
+          </a>
+        ))}
         {/* page numbers */}
       </div>
     </div>
