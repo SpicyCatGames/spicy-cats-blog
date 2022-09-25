@@ -1,4 +1,4 @@
-import "./homestyles.css";
+import "./poststyles.css";
 import { useState, useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { apiUrlContext } from "../../App";
