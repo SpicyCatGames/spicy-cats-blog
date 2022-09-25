@@ -1,6 +1,6 @@
 import Navbar from "./components/Navbar/Navbar";
 import CheckLogin from "./components/CheckLogin";
-import { Login, Signup, Home, About, PageNotFound } from "./pages";
+import { Login, Signup, Home, Post, About, PageNotFound } from "./pages";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 
@@ -34,6 +34,7 @@ function App() {
               <Navbar setLoggedIn={setLoggedIn} />
               <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/post/:id" element={<Post />} />
                 <Route
                   path="/login"
                   element={<Login setJwt={setJwt} setLoggedIn={setLoggedIn} />}
