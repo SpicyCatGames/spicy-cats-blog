@@ -2,6 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import "./homestyles.css";
 import BackgroundImage from "./fine.png";
 import { apiUrlContext } from "../../App";
+import { Link } from "react-router-dom";
 
 const pageSizeOptions = [
   { value: "3", label: "3" },
@@ -68,15 +69,15 @@ const Home = () => {
         </select>
         {/* page numbers */}
         {posts.map((post) => (
-          <a
-            href="./"
+          <Link
+            to={`./post/${post.id}`}
             className="home-post"
             key={post.id}
             data-post-id={post.id}
           >
             <img src={`${imageUrl}${post.imageUrl}`} width="500" alt="" />
             <span className="home-post-title">{post.title}</span>
-          </a>
+          </Link>
         ))}
         {/* page numbers */}
       </div>
