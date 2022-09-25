@@ -68,7 +68,12 @@ const Home = () => {
         </select>
         {/* page numbers */}
         {posts.map((post) => (
-          <a key={post.id} href="./" className="home-post">
+          <a
+            href="./"
+            className="home-post"
+            key={post.id}
+            data-post-id={post.id}
+          >
             <img src={`${imageUrl}${post.imageUrl}`} width="500" alt="" />
             <span className="home-post-title">{post.title}</span>
           </a>
