@@ -27,7 +27,7 @@ const Home = () => {
 
   const fetchPosts = async () => {
     const res = await fetch(
-      `${apiUrl}api/Posts/getposts?${pageNum}=1&postsPerPage=${pageSize}&category=${category}`,
+      `${apiUrl}api/Posts/getposts?pageNum=${pageNum}&postsPerPage=${pageSize}&category=${category}`,
       {
         method: "GET",
         credentials: "include",
