@@ -1,6 +1,6 @@
 .home{
     margin: 0px 0px 2px 0px;
-    background-color: #80dee2;
+    /* background-color: #80dee2; */
 }
 
 .home-post{
@@ -32,6 +32,10 @@
     max-width: 800px;
     width: 100%;
     margin: auto;
+    padding: 0% 1%;
+    background-color: #80dee2;
+    border-bottom-left-radius: 1%;
+    border-bottom-right-radius: 1%;
 }
 
 .home-post {
