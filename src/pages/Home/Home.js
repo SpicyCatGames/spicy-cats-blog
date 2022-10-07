@@ -13,8 +13,13 @@ const pageSizeOptions = [
 // https://localhost:44362/api/Posts/getposts?pageNum=1&postsPerPage=10&category=a
 
 const Home = () => {
+  let pSize = sessionStorage.getItem("pageSize");
+  if (pSize === null || (typeof pSize === "string" && pSize.length === 0)) {
+    pSize = "3";
+  }
+
   const apiUrl = useContext(apiUrlContext);
-  const [pageSize, setPageSize] = useState("3");
+  const [pageSize, setPageSize] = useState(pSize);
   const [pageNum, setPageNum] = useState("1"); //eslint-disable-line no-unused-vars
   const [category, setCategory] = useState(""); //eslint-disable-line no-unused-vars
   const [posts, setPosts] = useState([]);
@@ -47,6 +52,7 @@ const Home = () => {
 
   const handlePageSizeChange = (e) => {
     if (!(e.target.value === pageSize)) {
+      sessionStorage.setItem("pageSize", e.target.value);
       setPageSize(e.target.value);
     }
   };
@@ -64,7 +70,9 @@ const Home = () => {
         Posts per Page:
         <select onChange={handlePageSizeChange}>
           {pageSizeOptions.map((option) => (
-            <option key={option.value}>{option.label}</option>
+            <option key={option.value} selected={option.value === pageSize}>
+              {option.label}
+            </option>
           ))}
         </select>
         {/* page numbers */}
