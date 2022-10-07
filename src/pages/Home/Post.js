@@ -56,7 +56,7 @@ const Post = () => {
     <div className="post-container">
       <div className="post-contents">
         <img
-          src={isLoaded ? `${imageUrl}imageUrl` : "/"}
+          src={isLoaded ? `${imageUrl}${post.imageUrl}` : "/"}
           width="500"
           alt=""
           className="post-cover-img"
