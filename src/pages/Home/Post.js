@@ -54,14 +54,16 @@ const Post = () => {
 
   return (
     <div className="post-container">
-      <img
-        src={isLoaded ? `${imageUrl}imageUrl` : "/"}
-        width="500"
-        alt=""
-        className="post-cover-img"
-      />
-      <span className="post-title">{post.title}</span>
-      <div className="post-body">{post.body}</div>
+      <div className="post-contents">
+        <img
+          src={isLoaded ? `${imageUrl}imageUrl` : "/"}
+          width="500"
+          alt=""
+          className="post-cover-img"
+        />
+        <span className="post-title">{post.title}</span>
+        <div className="post-body">{post.body}</div>
+      </div>
     </div>
   );
 };
