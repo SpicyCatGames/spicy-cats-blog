@@ -1,4 +1,4 @@
-# context api or redux to store state
+<!-- # context api or redux to store state
 
 # npm install to install all dependencies from package.json
 
@@ -22,7 +22,7 @@
 
 # npm install react-router-dom@6.0.2
 
-# code . to open powershell directory in vscode
+# code . to open powershell directory in vscode -->
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
