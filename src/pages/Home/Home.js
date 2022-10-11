@@ -68,11 +68,9 @@ const Home = () => {
       </div>
       <div className="home-container">
         Posts per Page:
-        <select onChange={handlePageSizeChange}>
+        <select onChange={handlePageSizeChange} defaultValue={pageSize}>
           {pageSizeOptions.map((option) => (
-            <option key={option.value} selected={option.value === pageSize}>
-              {option.label}
-            </option>
+            <option key={option.value}>{option.label}</option>
           ))}
         </select>
         {/* page numbers */}
