@@ -79,7 +79,9 @@ const Signup = () => {
         loggedIn ? (
           <h3>You are already logged in!</h3>
         ) : (
-          <NotLoggedInBody />
+          // call component like this to prevent re-render of only component which would cause it to lose focus
+          // calling it this way means the *parent* re-renders every time a state in the component chnages
+          NotLoggedInBody()
         )
       ) : (
         <h3>Sign up successful!</h3>
