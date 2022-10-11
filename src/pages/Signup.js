@@ -9,6 +9,9 @@ const Signup = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
+  const [signupSuccessful, setSignupSuccessful] = useState(false);
+  const [error, setError] = useState("");
+
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -30,13 +33,21 @@ const Signup = () => {
       },
       body: JSON.stringify(signupInfo),
     });
+    if (res.ok) {
+      setSignupSuccessful(true);
+    } else {
+      const data = await res.text();
+      setError(data);
+    }
   };
 
   const NotLoggedInBody = () => (
     <>
       <h3>Create New Account</h3>
+
       <form onSubmit={onSubmit}>
         <div>
+          <p style={errorStyle}>{error.length > 0 ? `${error}` : ""}</p>
           <label htmlFor="UserName">Username: </label>
           <input
             id="UserName"
@@ -64,9 +75,24 @@ const Signup = () => {
 
   return (
     <div className="signup-container">
-      {loggedIn ? <h3>You are already logged in!</h3> : <NotLoggedInBody />}
+      {!signupSuccessful ? (
+        loggedIn ? (
+          <h3>You are already logged in!</h3>
+        ) : (
+          <NotLoggedInBody />
+        )
+      ) : (
+        <h3>Sign up successful!</h3>
+      )}
     </div>
   );
+};
+
+const errorStyle = {
+  color: "black",
+  textShadow: "red 0 0 2px",
+  margin: "0",
+  padding: "0",
 };
 
 export default Signup;
