@@ -1,6 +1,7 @@
 import "./loginregstyles.css";
 import { useContext, useState } from "react";
 import { apiUrlContext, loggedInContext } from "../App";
+import SelectWholeInputOnFocus from "../components/SelectWholeInputOnFocus";
 
 const Signup = () => {
   const loggedIn = useContext(loggedInContext);
@@ -55,6 +56,7 @@ const Signup = () => {
             placeholder="username"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            onFocus={SelectWholeInputOnFocus}
           />
         </div>
         <div>
@@ -66,6 +68,7 @@ const Signup = () => {
             placeholder="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            onFocus={SelectWholeInputOnFocus}
           />
         </div>
         <input className="signup-button" type="submit" value="Sign Up" />

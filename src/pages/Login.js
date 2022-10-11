@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { apiUrlContext, loggedInContext } from "../App";
+import SelectWholeInputOnFocus from "../components/SelectWholeInputOnFocus";
 import "./loginregstyles.css";
 
 const Login = ({ setJwt, setLoggedIn }) => {
@@ -89,6 +90,7 @@ const Login = ({ setJwt, setLoggedIn }) => {
                 placeholder="username"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                onFocus={SelectWholeInputOnFocus}
               />
             </div>
             <div>
@@ -100,6 +102,7 @@ const Login = ({ setJwt, setLoggedIn }) => {
                 placeholder="password"
                 value={pass}
                 onChange={(e) => setPass(e.target.value)}
+                onFocus={SelectWholeInputOnFocus}
               />
             </div>
             <input className="login-button" type="submit" value="Sign in" />
