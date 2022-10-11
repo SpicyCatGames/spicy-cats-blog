@@ -32,39 +32,39 @@ const Signup = () => {
     });
   };
 
+  const NotLoggedInBody = () => (
+    <>
+      <h3>Create New Account</h3>
+      <form onSubmit={onSubmit}>
+        <div>
+          <label htmlFor="UserName">Username: </label>
+          <input
+            id="UserName"
+            className="signup-name-box"
+            placeholder="username"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+        <div>
+          <label htmlFor="Password">Password: </label>
+          <input
+            id="Password"
+            className="signup-pass-box"
+            type="password"
+            placeholder="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <input className="signup-button" type="submit" value="Sign Up" />
+      </form>
+    </>
+  );
+
   return (
     <div className="signup-container">
-      {loggedIn ? (
-        <h3>You are already logged in!</h3>
-      ) : (
-        <>
-          <h3>Create New Account</h3>
-          <form onSubmit={onSubmit}>
-            <div>
-              <label htmlFor="UserName">Username: </label>
-              <input
-                id="UserName"
-                className="signup-name-box"
-                placeholder="username"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-            </div>
-            <div>
-              <label htmlFor="Password">Password: </label>
-              <input
-                id="Password"
-                className="signup-pass-box"
-                type="password"
-                placeholder="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-            <input className="signup-button" type="submit" value="Sign Up" />
-          </form>
-        </>
-      )}
+      {loggedIn ? <h3>You are already logged in!</h3> : <NotLoggedInBody />}
     </div>
   );
 };
