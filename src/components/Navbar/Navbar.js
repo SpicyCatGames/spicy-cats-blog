@@ -28,9 +28,17 @@ const Navbar = ({ setLoggedIn }) => {
             </CustomLink>
           </>
         ) : (
-          <CustomLink to="/" onClick={logOut}>
-            <p className="nav-text">Log Out</p>
-          </CustomLink>
+          <>
+            <CustomLink to="/new-post">
+              <p className="nav-text">New Post</p>
+            </CustomLink>
+            <CustomLink to="/my-posts">
+              <p className="nav-text">My Posts</p>
+            </CustomLink>
+            <CustomLink to="/" onClick={logOut}>
+              <p className="nav-text">Log Out</p>
+            </CustomLink>
+          </>
         )}
         <CustomLink to="/about">
           <p className="nav-text">About</p>
