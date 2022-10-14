@@ -27,12 +27,7 @@ const Home = () => {
   const imageUrl = `${apiUrl}api/Posts/Image?image=`;
 
   useEffect(() => {
-    // if we have a url in sessionstorage from github 404 page,
-    // we will be almost instantly navigated to that
-    // so there is no need to fetch posts
-    if (!sessionStorage.getItem("404url")) {
-      fetchPosts();
-    }
+    fetchPosts();
   }, [pageSize]); //eslint-disable-line react-hooks/exhaustive-deps
 
   const fetchPosts = async () => {
