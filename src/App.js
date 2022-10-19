@@ -43,6 +43,7 @@ function App() {
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/new-post" element={<NewPost />} />
+                {/* <Route path="/my-posts" element={<MyPosts />} /> */}
                 <Route path="*" element={<PageNotFound />} />
               </Routes>
             </div>
