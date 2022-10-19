@@ -3,6 +3,7 @@ import CheckLogin from "./components/CheckLogin";
 import { Login, Signup, Home, Post, About, PageNotFound } from "./pages";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
+import NewPost from "./pages/NewPost";
 
 export const jwtContext = React.createContext();
 export const apiUrlContext = React.createContext();
@@ -41,6 +42,7 @@ function App() {
                 />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/about" element={<About />} />
+                <Route path="/new-post" element={<NewPost />} />
                 <Route path="*" element={<PageNotFound />} />
               </Routes>
             </div>
