@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { apiUrlContext, loggedInContext } from "../App";
-import SelectWholeInputOnFocus from "../components/SelectWholeInputOnFocus";
+import SelectWholeInputOnFocus from "../components/Utils/SelectWholeInputOnFocus";
 import "./loginregstyles.css";
 
 const Login = ({ setJwt, setLoggedIn }) => {

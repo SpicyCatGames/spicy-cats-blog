@@ -1,7 +1,7 @@
 import "./loginregstyles.css";
 import { useContext, useState } from "react";
 import { apiUrlContext, loggedInContext } from "../App";
-import SelectWholeInputOnFocus from "../components/SelectWholeInputOnFocus";
+import SelectWholeInputOnFocus from "../components/Utils/SelectWholeInputOnFocus";
 
 const Signup = () => {
   const loggedIn = useContext(loggedInContext);

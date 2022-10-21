@@ -1,5 +1,5 @@
 import Navbar from "./components/Navbar/Navbar";
-import CheckLogin from "./components/CheckLogin";
+import CheckLogin from "./components/Utils/CheckLogin";
 import { Login, Signup, Home, Post, About, PageNotFound } from "./pages";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
