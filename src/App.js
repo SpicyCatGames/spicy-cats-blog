@@ -13,7 +13,7 @@ function App() {
   const [jwt, setJwt] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
   let navigate = useNavigate();
-  const apiUrl = "https://sadmandiu.somee.com/";
+  const apiUrl = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     CheckLogin({ apiURL: apiUrl, setJWT: setJwt, setLoggedin: setLoggedIn });
