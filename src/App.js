@@ -4,7 +4,6 @@ import { Login, Signup, Home, Post, About, PageNotFound } from "./pages";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import NewPost from "./pages/NewPost";
-import Profile from "./pages/Profile";
 
 export const jwtContext = React.createContext();
 export const apiUrlContext = React.createContext();
@@ -43,7 +42,6 @@ function App() {
                 />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/about" element={<About />} />
-                <Route path="/profile" element={<Profile />} />
                 <Route path="/new-post" element={<NewPost />} />
                 {/* <Route path="/my-posts" element={<MyPosts />} /> */}
                 <Route path="*" element={<PageNotFound />} />
