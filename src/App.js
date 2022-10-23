@@ -17,7 +17,7 @@ function App() {
 
   useEffect(() => {
     CheckLogin({ apiURL: apiUrl, setJWT: setJwt, setLoggedin: setLoggedIn });
-    let baseURL = "https://spicycatgames.github.io/";
+    let baseURL = window.location.protocol + "//" + window.location.host + "/";
     let returnURL = sessionStorage.getItem("404url");
     if (returnURL && returnURL.length > 0 && returnURL.startsWith(baseURL)) {
       sessionStorage.removeItem("404url");
