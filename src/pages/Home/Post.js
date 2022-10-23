@@ -62,6 +62,8 @@ const Post = () => {
           className="post-cover-img"
         />
         <span className="post-title">{post.title}</span>
+        <span>Author: {post.author}</span>
+        <span>Time: {post.created} UTC</span>
         <div className="post-body">{post.body}</div>
       </div>
     </div>
