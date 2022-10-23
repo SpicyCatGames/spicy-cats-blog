@@ -1,5 +1,7 @@
+import Tiptap from "../components/Tiptap";
+
 const NewPost = () => {
-  return <div>CreatePost</div>;
+  return <Tiptap />;
 };
 
 export default NewPost;
