@@ -6,9 +6,14 @@ const Tiptap = () => {
   const editor = useEditor({
     extensions: [StarterKit],
     content: "<p>Type your post here</p>",
+    onUpdate({ editor }) {
+      // content has changed
+    },
   });
 
   return <EditorContent editor={editor} />;
 };
 
 export default Tiptap;
+
+// https://tiptap.dev/api/events#update
