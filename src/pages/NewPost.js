@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Tiptap from "../components/Tiptap/Tiptap";
-import { apiUrlContext, loggedInContext } from "../App";
+import { apiUrlContext, loggedInContext, jwtContext } from "../App";
 
 const NewPost = () => {
   const [title, setTitle] = useState("");
@@ -12,6 +12,7 @@ const NewPost = () => {
 
   const loggedIn = useContext(loggedInContext);
   const apiUrl = useContext(apiUrlContext);
+  const jwt = useContext(jwtContext);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -32,7 +33,7 @@ const NewPost = () => {
       credentials: "include",
       headers: {
         Accept: "*/*",
-        "Content-Type": "multipart/form-data",
+        Authorization: jwt,
       },
       body: JSON.stringify(post),
     });
