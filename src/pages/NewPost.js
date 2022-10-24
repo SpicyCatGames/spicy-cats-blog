@@ -1,15 +1,18 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Tiptap from "../components/Tiptap";
+import { apiUrlContext, loggedInContext } from "../App";
 
 const NewPost = () => {
   const [title, setTitle] = useState("");
   const [error, setError] = useState("");
 
+  const loggedIn = useContext(loggedInContext);
+
   const onSubmit = (e) => {
     e.preventDefault();
   };
 
-  return (
+  const LoggedInBody = () => (
     <form onSubmit={onSubmit}>
       <label htmlFor="post-title">
         <input
@@ -30,6 +33,12 @@ const NewPost = () => {
       <span>Category field will be added later</span>
       <br />
     </form>
+  );
+
+  return loggedIn ? (
+    <LoggedInBody />
+  ) : (
+    <p>You need to log in to access this page</p>
   );
 };
 
