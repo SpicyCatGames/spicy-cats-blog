@@ -2,12 +2,12 @@
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 
-const Tiptap = () => {
+const Tiptap = ({ onBodyChange }) => {
   const editor = useEditor({
     extensions: [StarterKit],
     content: "<p>Type your post here</p>",
     onUpdate({ editor }) {
-      // content has changed
+      onBodyChange(editor.getHTML());
     },
   });
 

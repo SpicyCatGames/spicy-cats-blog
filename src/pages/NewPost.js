@@ -4,6 +4,7 @@ import { apiUrlContext, loggedInContext } from "../App";
 
 const NewPost = () => {
   const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
   const [error, setError] = useState("");
 
   const loggedIn = useContext(loggedInContext);
@@ -23,7 +24,7 @@ const NewPost = () => {
           onChange={(e) => setTitle(e.target.value)}
         />
       </label>
-      <Tiptap />
+      <Tiptap onBodyChange={setBody} />
       <span>Image upload will be added later</span>
       <br />
       <span>Descrription field will be added later</span>
