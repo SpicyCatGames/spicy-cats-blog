@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import Tiptap from "../components/Tiptap";
+import Tiptap from "../components/Tiptap/Tiptap";
 import { apiUrlContext, loggedInContext } from "../App";
 
 const NewPost = () => {
