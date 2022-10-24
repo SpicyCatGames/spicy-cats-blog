@@ -1,4 +1,5 @@
 import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import Tiptap from "../components/Tiptap/Tiptap";
 import { apiUrlContext, loggedInContext } from "../App";
 
@@ -7,10 +8,40 @@ const NewPost = () => {
   const [body, setBody] = useState("");
   const [error, setError] = useState("");
 
+  let navigate = useNavigate();
+
   const loggedIn = useContext(loggedInContext);
+  const apiUrl = useContext(apiUrlContext);
 
   const onSubmit = (e) => {
     e.preventDefault();
+
+    const post = {
+      Body: body,
+      Title: title,
+      Tags: "",
+      Category: "",
+    };
+
+    submitPost(post);
+  };
+
+  const submitPost = async (post) => {
+    const res = await fetch(`${apiUrl}api/Posts/createpost`, {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        Accept: "*/*",
+        "Content-Type": "multipart/form-data",
+      },
+      body: JSON.stringify(post),
+    });
+    if (res.ok) {
+      navigate("/");
+    } else {
+      const data = await res.text();
+      setError(data);
+    }
   };
 
   const LoggedInBody = () => (
@@ -25,6 +56,8 @@ const NewPost = () => {
         />
       </label>
       <Tiptap onBodyChange={setBody} />
+      <input type="submit" value="Submit post" />
+      <br />
       <span>Image upload will be added later</span>
       <br />
       <span>Descrription field will be added later</span>
