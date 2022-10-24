@@ -36,7 +36,7 @@ const NewPost = () => {
   );
 
   return loggedIn ? (
-    <LoggedInBody />
+    LoggedInBody()
   ) : (
     <p>You need to log in to access this page</p>
   );
