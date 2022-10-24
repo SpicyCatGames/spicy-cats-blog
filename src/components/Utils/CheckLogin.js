@@ -11,7 +11,7 @@ const CheckLogin = async ({ apiURL, setJWT, setLoggedin }) => {
 
   if (res.ok) {
     const data = await res.json();
-    setJWT(`bearer ${data}`);
+    setJWT(`bearer ${data.jwt}`);
     setLoggedin(true);
   } else {
   }
