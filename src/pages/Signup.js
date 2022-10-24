@@ -11,7 +11,7 @@ const Signup = () => {
   const [password, setPassword] = useState("");
 
   const [signupSuccessful, setSignupSuccessful] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState([]);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -37,8 +37,8 @@ const Signup = () => {
     if (res.ok) {
       setSignupSuccessful(true);
     } else {
-      const data = await res.text();
-      setError(data);
+      const data = await res.json();
+      setError(data.errors);
     }
   };
 
@@ -48,7 +48,15 @@ const Signup = () => {
 
       <form onSubmit={onSubmit}>
         <div>
-          <p style={errorStyle}>{error.length > 0 ? `${error}` : ""}</p>
+          {error.length > 0
+            ? error.map((err) => (
+                <p style={errorStyle}>
+                  {error.length > 0 ? `${err}` : ""}
+                  <br />
+                </p>
+              ))
+            : ""}
+
           <label htmlFor="UserName">Username: </label>
           <input
             id="UserName"
