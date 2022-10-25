@@ -2,6 +2,7 @@ import "./poststyles.css";
 import { useState, useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { apiUrlContext } from "../../App";
+import HTMLReactParser from "html-react-parser";
 
 // https://localhost:44362/api/Posts/Post/bd70975f-e895-4f35-a256-9a6789bb5d6b
 
@@ -64,7 +65,7 @@ const Post = () => {
         <span className="post-title">{post.title}</span>
         <span>Author: {post.author}</span>
         <span>Time: {post.created} UTC</span>
-        <div className="post-body">{post.body}</div>
+        <div className="post-body">{HTMLReactParser(post.body)}</div>
       </div>
     </div>
   );
