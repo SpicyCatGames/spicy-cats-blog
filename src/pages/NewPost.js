@@ -17,17 +17,16 @@ const NewPost = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    const post = {
-      Body: body,
-      Title: title,
-      Tags: "",
-      Category: "",
-    };
+    const formData = new FormData();
+    formData.append("Body", body);
+    formData.append("Title", title);
+    formData.append("Tags", "");
+    formData.append("Category", "");
 
-    submitPost(post);
+    submitPost(formData);
   };
 
-  const submitPost = async (post) => {
+  const submitPost = async (data) => {
     const res = await fetch(`${apiUrl}api/Posts/createpost`, {
       method: "POST",
       credentials: "include",
@@ -35,7 +34,7 @@ const NewPost = () => {
         Accept: "*/*",
         Authorization: jwt,
       },
-      body: JSON.stringify(post),
+      body: data,
     });
     if (res.ok) {
       navigate("/");
