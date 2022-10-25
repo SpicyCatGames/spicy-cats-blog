@@ -133,6 +133,7 @@ const MenuBar = ({ editor }) => {
   );
 };
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default ({ onBodyChange }) => {
   const editor = useEditor({
     extensions: [StarterKit],
