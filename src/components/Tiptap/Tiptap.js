@@ -169,6 +169,9 @@ export default ({ onBodyChange }) => {
     onUpdate({ editor }) {
       onBodyChange(editor.getHTML());
     },
+    onCreate({ editor }) {
+      onBodyChange(editor.getHTML());
+    },
   });
 
   return (
