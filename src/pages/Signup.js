@@ -51,7 +51,7 @@ const Signup = () => {
           {error.length > 0
             ? error.map((err) => (
                 <p style={errorStyle}>
-                  {error.length > 0 ? `${err}` : ""}
+                  {error.length > 0 ? `${err.message}` : ""}
                   <br />
                 </p>
               ))
