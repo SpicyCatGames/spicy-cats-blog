@@ -42,7 +42,7 @@ const Post = () => {
       });
       if (res.ok) {
         const data = await res.json();
-        setPost(data);
+        setPost({ ...data, created: formatDate(data.created) });
         setIsLoaded(true);
       } else {
         setPost({
@@ -62,6 +62,10 @@ const Post = () => {
     }
   };
 
+  const formatDate = (dateString) => {
+    return new Date(`${dateString} UTC`).toString();
+  };
+
   return (
     <div className="post-container">
       <div className="post-contents">
@@ -73,7 +77,7 @@ const Post = () => {
         />
         <span className="post-title">{post.title}</span>
         <span>Author: {post.author}</span>
-        <span>Time: {new Date(`${post.created} UTC`).toString()}</span>
+        <span>Time: {post.created}</span>
         <div className="post-body">{HTMLReactParser(post.body)}</div>
       </div>
     </div>
