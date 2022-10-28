@@ -31,23 +31,32 @@ const Post = () => {
   }, []); //eslint-disable-line react-hooks/exhaustive-deps
 
   const fetchPost = async () => {
-    const res = await fetch(`${apiUrl}api/Posts/Post/${id}`, {
-      method: "GET",
-      credentials: "include",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    });
-    if (res.ok) {
-      const data = await res.json();
-      setPost(data);
-      setIsLoaded(true);
-    } else {
+    try {
+      const res = await fetch(`${apiUrl}api/Posts/Post/${id}`, {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setPost(data);
+        setIsLoaded(true);
+      } else {
+        setPost({
+          ...Post,
+          title: `error ${res.status}`,
+          body: "post could not be loaded",
+        });
+        setIsLoaded(true);
+      }
+    } catch (error) {
       setPost({
         ...Post,
-        title: `error ${res.status}`,
-        body: "post could not be loaded",
+        title: `Server is in maintenance`,
+        body: "Try again after a few minutes",
       });
       setIsLoaded(true);
     }
