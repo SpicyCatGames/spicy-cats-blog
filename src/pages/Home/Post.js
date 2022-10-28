@@ -73,7 +73,7 @@ const Post = () => {
         />
         <span className="post-title">{post.title}</span>
         <span>Author: {post.author}</span>
-        <span>Time: {post.created} UTC</span>
+        <span>Time: {new Date(`${post.created} UTC`).toString()}</span>
         <div className="post-body">{HTMLReactParser(post.body)}</div>
       </div>
     </div>
