@@ -63,7 +63,15 @@ const Post = () => {
   };
 
   const formatDate = (dateString) => {
-    return new Date(`${dateString} UTC`).toString();
+    const date = new Date(`${dateString} UTC`);
+    const formatter = new Intl.DateTimeFormat("en-US", {
+      hour: "numeric",
+      minute: "numeric",
+      year: "numeric",
+      month: "numeric",
+      day: "numeric",
+    });
+    return formatter.format(date);
   };
 
   return (
