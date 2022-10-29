@@ -86,7 +86,9 @@ const Post = () => {
         <span className="post-title">{post.title}</span>
         <span>Author: {post.author}</span>
         <span>Time: {post.created}</span>
-        <div className="post-body">{HTMLReactParser(post.body)}</div>
+        <div className="post-body">
+          <p>{HTMLReactParser(post.body)}</p>
+        </div>
       </div>
     </div>
   );

@@ -168,12 +168,35 @@ export default ({ onBodyChange }) => {
       </blockquote>
     `,
     onUpdate({ editor }) {
-      onBodyChange(editor.getHTML());
+      onBodyChange(htmlOrEmpty(editor));
     },
     onCreate({ editor }) {
-      onBodyChange(editor.getHTML());
+      onBodyChange(htmlOrEmpty(editor));
     },
   });
+  function htmlOrEmpty(editor) {
+    let text = editor.getText();
+    if (text.length > 0 && isAlphaNumeric(text) === true) {
+      return editor.getHTML();
+    }
+    return "";
+  }
+  function isAlphaNumeric(str) {
+    var code, i, len;
+
+    for (i = 0, len = str.length; i < len; i++) {
+      code = str.charCodeAt(i);
+      if (
+        !(code > 47 && code < 58) && // numeric (0-9)
+        !(code > 64 && code < 91) && // upper alpha (A-Z)
+        !(code > 96 && code < 123)
+      ) {
+        // lower alpha (a-z)
+        return false;
+      }
+    }
+    return true;
+  }
 
   return (
     <div>
