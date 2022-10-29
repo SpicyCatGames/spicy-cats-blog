@@ -23,6 +23,8 @@ const Home = () => {
   const [pageNum, setPageNum] = useState("1"); //eslint-disable-line no-unused-vars
   const [category, setCategory] = useState(""); //eslint-disable-line no-unused-vars
   const [posts, setPosts] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [error, setError] = useState("");
 
   const imageUrl = `${apiUrl}api/Posts/Image?image=`;
 
@@ -36,22 +38,31 @@ const Home = () => {
   }, [pageSize]); //eslint-disable-line react-hooks/exhaustive-deps
 
   const fetchPosts = async () => {
-    const res = await fetch(
-      `${apiUrl}api/Posts/getposts?pageNum=${pageNum}&postsPerPage=${pageSize}&category=${category}`,
-      {
-        method: "GET",
-        credentials: "include",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
+    try {
+      const res = await fetch(
+        `${apiUrl}api/Posts/getposts?pageNum=${pageNum}&postsPerPage=${pageSize}&category=${category}`,
+        {
+          method: "GET",
+          credentials: "include",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (res.ok) {
+        const data = await res.json();
+        setPosts(data);
+        setIsLoaded(true);
+      } else {
+        setError("Posts Could not be loaded");
+        setIsLoaded(true);
       }
-    );
-    if (res.ok) {
-      const data = await res.json();
-      setPosts(data);
-    } else {
-      //
+    } catch (error) {
+      setError(
+        "Either your connection is bad or server is in updating, please wait 5-10 minutes."
+      );
+      setIsLoaded(true);
     }
   };
 
@@ -79,17 +90,23 @@ const Home = () => {
           ))}
         </select>
         {/* page numbers */}
-        {posts.map((post) => (
-          <Link
-            to={`./post/${post.id}`}
-            className="home-post"
-            key={post.id}
-            data-post-id={post.id}
-          >
-            <img src={`${imageUrl}${post.imageUrl}`} width="500" alt="" />
-            <span className="home-post-title">{post.title}</span>
-          </Link>
-        ))}
+        {isLoaded === false ? (
+          <p>Loading posts</p>
+        ) : error !== "" ? (
+          <p>{error}</p>
+        ) : (
+          posts.map((post) => (
+            <Link
+              to={`./post/${post.id}`}
+              className="home-post"
+              key={post.id}
+              data-post-id={post.id}
+            >
+              <img src={`${imageUrl}${post.imageUrl}`} width="500" alt="" />
+              <span className="home-post-title">{post.title}</span>
+            </Link>
+          ))
+        )}
         {/* page numbers */}
       </div>
     </div>
